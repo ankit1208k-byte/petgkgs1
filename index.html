@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER KIDS STUDY CENTRE - UP PET GK/GS MOCK TEST</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --primary-border: #93c5fd;
+            --slate-800: #1e293b;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --success: #16a34a;
+            --success-light: #dcfce7;
+            --danger: #dc2626;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --card-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: var(--slate-800);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 820px;
+            margin: auto;
+        }
+
+        /* Header Card */
+        .brand-header {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 20px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .brand-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+
+        .brand-sub {
+            font-size: 14px;
+            color: var(--slate-600);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            margin-top: 8px;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        /* Generic Card */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: var(--card-shadow-lg);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Start Screen */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--slate-800);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--slate-200);
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--slate-50);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            background: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            font-size: 17px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn:active {
+            transform: scale(0.99);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-light);
+        }
+
+        /* Quiz Active Screen */
+        .quiz-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .user-tag {
+            font-size: 13px;
+            color: var(--slate-600);
+            background: var(--slate-100);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .timer-badge {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: #e2e8f0;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 96px;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .timer-danger {
+            background: var(--danger-light);
+            color: var(--danger);
+            animation: pulse-danger 1s infinite alternate;
+        }
+
+        @keyframes pulse-danger {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.06); }
+        }
+
+        .progress-box {
+            margin-bottom: 20px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--slate-500);
+            margin-bottom: 6px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: var(--slate-200);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-title {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: var(--slate-800);
+            margin-bottom: 22px;
+        }
+
+        /* Options strictly Neutral */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            padding: 16px 18px;
+            background: #ffffff;
+            border: 2px solid var(--slate-200);
+            border-radius: 12px;
+            font-size: 16px;
+            color: var(--slate-800);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            line-height: 1.4;
+        }
+
+        .option-btn:hover {
+            border-color: var(--slate-400);
+            background: var(--slate-50);
+        }
+
+        .opt-letter {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--slate-100);
+            color: var(--slate-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        /* Selection styling: Strictly Neutral (NO Green, NO Red) */
+        .option-btn.selected {
+            background-color: var(--primary-light) !important;
+            border-color: var(--primary) !important;
+            color: #1e3a8a !important;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+        }
+
+        .option-btn.selected .opt-letter {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-prev {
+            background: var(--slate-200);
+            color: var(--slate-800);
+        }
+
+        .btn-prev:hover {
+            background: var(--slate-300);
+        }
+
+        .btn-next {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-next:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Results & Score Screen */
+        .score-hero {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .score-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .score-number {
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .score-total {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .score-percent {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+        }
+
+        .motivational-box {
+            background: #f8fafc;
+            border-left: 5px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--slate-800);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: var(--slate-50);
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            border: 1px solid var(--slate-200);
+        }
+
+        .stat-card.correct { border-color: #86efac; background: var(--success-light); }
+        .stat-card.wrong { border-color: #fca5a5; background: var(--danger-light); }
+        .stat-card.skipped { border-color: #fde68a; background: var(--warning-light); }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .stat-card.correct .stat-val { color: var(--success); }
+        .stat-card.wrong .stat-val { color: var(--danger); }
+        .stat-card.skipped .stat-val { color: var(--warning); }
+
+        .stat-lbl {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--slate-600);
+            margin-top: 4px;
+        }
+
+        /* Review Section */
+        .review-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .review-head {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--slate-800);
+            border-bottom: 2px solid var(--slate-200);
+            padding-bottom: 8px;
+        }
+
+        .review-item {
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+
+        .review-q-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--slate-800);
+        }
+
+        .review-ans-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .badge-ans {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .badge-correct {
+            background: var(--success-light);
+            color: var(--success);
+            border: 1px solid #86efac;
+        }
+
+        .badge-user-wrong {
+            background: var(--danger-light);
+            color: var(--danger);
+            border: 1px solid #fca5a5;
+        }
+
+        .badge-skipped {
+            background: var(--warning-light);
+            color: #b45309;
+            border: 1px solid #fde68a;
+        }
+
+        .review-explanation {
+            font-size: 13px;
+            background: #ffffff;
+            border-left: 3px solid var(--primary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: var(--slate-600);
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Leaderboard */
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+
+        .leaderboard-table th {
+            background: var(--slate-100);
+            padding: 10px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--slate-600);
+            border-bottom: 2px solid var(--slate-200);
+        }
+
+        .leaderboard-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--slate-200);
+        }
+
+        .rank-badge {
+            font-weight: 800;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 12px;
+            background: var(--slate-200);
+        }
+
+        .rank-1 { background: #fef08a; color: #854d0e; }
+        .rank-2 { background: #e2e8f0; color: #475569; }
+        .rank-3 { background: #fed7aa; color: #9a3412; }
+
+        .score-bar-bg {
+            background: var(--slate-200);
+            height: 6px;
+            border-radius: 3px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .score-bar-fill {
+            background: var(--primary);
+            height: 100%;
+        }
+
+        /* Locked Screen */
+        .locked-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .lock-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .locked-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--danger);
+            margin-bottom: 10px;
+        }
+
+        .locked-desc {
+            font-size: 15px;
+            color: var(--slate-600);
+            margin-bottom: 24px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .card { padding: 18px; }
+            .brand-title { font-size: 18px; }
+            .question-title { font-size: 17px; }
+            .option-btn { font-size: 15px; padding: 14px; }
+            .stats-grid { gap: 8px; }
+            .stat-val { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header class="brand-header">
+        <h1 class="brand-title">SUPER KIDS STUDY CENTRE</h1>
+        <p class="brand-sub">UPSSSC PET 2026 - GK / GS / CURRENT AFFAIRS MOCK TEST</p>
+        <span class="brand-badge">50 MCQs | 30s प्रति प्रश्न | आधिकारिक पैटर्न</span>
+    </header>
+
+    <!-- SECTION 1: START SCREEN -->
+    <section id="startScreen" class="card">
+        <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 16px; text-align: center;">अभ्यर्थी विवरण (Candidate Login)</h2>
+        <div class="form-group">
+            <label for="userName">पूरा नाम (Full Name) *</label>
+            <input type="text" id="userName" class="form-input" placeholder="उदा. अमित कुमार" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="userRoll">रोल नंबर (Roll Number) *</label>
+            <input type="text" id="userRoll" class="form-input" placeholder="उदा. PET-2026-101" autocomplete="off">
+        </div>
+        <div style="background: var(--slate-100); padding: 12px; border-radius: 8px; font-size: 13px; color: var(--slate-600); margin-bottom: 20px;">
+            <strong>निर्देश:</strong><br>
+            • प्रत्येक प्रश्न के लिए ठीक <strong>30 सेकंड</strong> मिलेंगे।<br>
+            • टेस्ट के दौरान सही या गलत उत्तर का संकेत नहीं दिया जाएगा।<br>
+            • पूरा टेस्ट समाप्त होने पर ही परिणाम और उत्तरमाला दिखाई जाएगी।<br>
+            • एक नाम व रोल नंबर से <strong>केवल एक ही बार</strong> परीक्षा दी जा सकती है।
+        </div>
+        <button id="btnStart" class="btn">क्विज़ शुरू करें (Start Test)</button>
+    </section>
+
+    <!-- SECTION 2: LOCKED SCREEN -->
+    <section id="lockedScreen" class="card locked-card hidden">
+        <div class="lock-icon">🔒</div>
+        <h2 class="locked-title">प्रयास सीमा समाप्त!</h2>
+        <p class="locked-desc">आप पहले ही यह क्विज़ दे चुके हैं। एक छात्र को दोबारा टेस्ट देने की अनुमति नहीं है।</p>
+        <div id="lockedUserSummary" style="margin-bottom: 24px; font-size: 14px; font-weight: 600; color: var(--slate-700);"></div>
+        <button id="btnViewPreviousResult" class="btn" style="margin-bottom: 12px;">अपना पिछला परिणाम देखें</button>
+        <button id="btnResetAll" class="btn btn-outline" style="font-size: 14px; padding: 10px;">(एडमिन) नया टेस्ट देने हेतु रीसेट करें</button>
+    </section>
+
+    <!-- SECTION 3: QUIZ ACTIVE SCREEN -->
+    <section id="quizScreen" class="card hidden">
+        <div class="quiz-top-bar">
+            <div class="user-tag" id="displayUserInfo">विद्यार्थी: -</div>
+            <div id="timerDisplay" class="timer-badge">
+                ⏱️ <span id="timerCount">30</span>s
+            </div>
+        </div>
+
+        <div class="progress-box">
+            <div class="progress-label">
+                <span id="qNumberText">Question 1 of 50</span>
+                <span id="qPercentText">2%</span>
+            </div>
+            <div class="progress-track">
+                <div id="progressBarFill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div id="questionContainer">
+            <h3 id="questionText" class="question-title">प्रश्न यहाँ लोड हो रहा है...</h3>
+            <div id="optionsContainer" class="options-list">
+                <!-- 4 Options will be rendered dynamically -->
+            </div>
+        </div>
+
+        <div class="quiz-actions">
+            <button id="btnPrev" class="action-btn btn-prev">पिछला (Prev)</button>
+            <button id="btnNext" class="action-btn btn-next">अगला (Next)</button>
+        </div>
+    </section>
+
+    <!-- SECTION 4: RESULT SCREEN -->
+    <section id="resultScreen" class="card hidden">
+        <div class="score-hero">
+            <div class="score-circle">
+                <span class="score-number" id="finalScoreVal">0</span>
+                <span class="score-total">/ 50 अंक</span>
+            </div>
+            <div class="score-percent" id="finalPercentVal">0%</div>
+            <div id="candidateDetails" style="font-size: 15px; color: var(--slate-600); margin-bottom: 8px;"></div>
+            <div id="motivationalMsg" class="motivational-box">मजबूत प्रयास!</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card correct">
+                <div class="stat-val" id="statCorrect">0</div>
+                <div class="stat-lbl">सही उत्तर</div>
+            </div>
+            <div class="stat-card wrong">
+                <div class="stat-val" id="statWrong">0</div>
+                <div class="stat-lbl">गलत उत्तर</div>
+            </div>
+            <div class="stat-card skipped">
+                <div class="stat-val" id="statSkipped">0</div>
+                <div class="stat-lbl">छोड़े गए</div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 18px; font-weight: 800; border-bottom: 2px solid var(--slate-200); padding-bottom: 8px;">
+                🏆 मेरिट सूची (Leaderboard)
+            </h3>
+            <div style="overflow-x: auto;">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>रैंक</th>
+                            <th>नाम</th>
+                            <th>रोल नं.</th>
+                            <th>स्कोर</th>
+                            <th>प्रतिशत</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        <!-- Leaderboard rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Review list of all 50 questions -->
+        <div class="review-section">
+            <h3 class="review-head">📋 सभी 50 प्रश्नों की विस्तृत उत्तरमाला एवं व्याख्या</h3>
+            <div id="reviewQuestionsList">
+                <!-- Review cards inserted by JS -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+/* =========================================================
+   50 UP PET STYLE QUESTIONS (GK, GS, UP GK & CA-2026)
+   ========================================================= */
+const questions = [
+    {
+        q: "1. 'वेदों की ओर लौटो' का प्रसिद्ध नारा निम्नलिखित में से किसने दिया था?",
+        options: ["स्वामी विवेकानन्द", "स्वामी दयानन्द सरस्वती", "राजा राममोहन राय", "ईश्वर चन्द्र विद्यासागर"],
+        ans: 1,
+        exp: "स्वामी दयानन्द सरस्वती ने 1875 में आर्य समाज की स्थापना की और 'वेदों की ओर लौटो' (Go Back to Vedas) का नारा दिया।"
+    },
+    {
+        q: "2. वर्ष 1905 में बंगाल विभाजन के समय भारत का वायसराय कौन था?",
+        options: ["लॉर्ड कर्जन", "लॉर्ड रिपन", "लॉर्ड डलहौजी", "लॉर्ड माउंटबेटन"],
+        ans: 0,
+        exp: "16 अक्टूबर 1905 को लॉर्ड कर्जन द्वारा बंगाल का विभाजन प्रभावी किया गया था, जिसके विरोध में 'स्वदेशी आंदोलन' शुरू हुआ।"
+    },
+    {
+        q: "3. महात्मा गांधी ने 'करो या मरो' (Do or Die) का नारा किस आंदोलन के दौरान दिया था?",
+        options: ["असहयोग आंदोलन", "सविनय अवज्ञा आंदोलन", "भारत छोड़ो आंदोलन (1942)", "चंपारण सत्याग्रह"],
+        ans: 2,
+        exp: "8 अगस्त 1942 को बॉम्बे के ग्वालिया टैंक मैदान से 'भारत छोड़ो आंदोलन' के आह्वान पर गांधीजी ने यह ऐतिहासिक नारा दिया था।"
+    },
+    {
+        q: "4. मौर्य सम्राट अशोक ने कलिंग पर किस वर्ष आक्रमण किया था?",
+        options: ["261 ई.पू.", "269 ई.पू.", "273 ई.पू.", "232 ई.पू."],
+        ans: 0,
+        exp: "अशोक के 13वें शिलालेख के अनुसार, अपने राज्याभिषेक के 8वें वर्ष (261 ई.पू.) में उन्होंने कलिंग का युद्ध लड़ा था।"
+    },
+    {
+        q: "5. दिल्ली सल्तनत के किस सुल्तान ने प्रसिद्ध 'बाजार नियंत्रण एवं मूल्य निर्धारण नीति' लागू की थी?",
+        options: ["बलबन", "अलाउद्दीन खिलजी", "मुहम्मद बिन तुगलक", "फिरोज शाह तुगलक"],
+        ans: 1,
+        exp: "अलाउद्दीन खिलजी ने विशाल सेना के रखरखाव के लिए वस्तुओं के दाम निश्चित किए और 'दीवान-ए-रियासत' तथा 'शहना-ए-मंडी' की नियुक्ति की।"
+    },
+    {
+        q: "6. भारतीय राष्ट्रीय कांग्रेस की पहली महिला अध्यक्ष कौन थीं?",
+        options: ["सरोजिनी नायडू", "एनी बेसेंट", "सुचेता कृपलानी", "अरुणा आसफ अली"],
+        ans: 1,
+        exp: "एनी बेसेंट 1917 के कलकत्ता अधिवेशन में कांग्रेस की पहली महिला अध्यक्ष बनीं (सरोजिनी नायडू 1925 में पहली 'भारतीय' महिला अध्यक्ष बनी थीं)।"
+    },
+    {
+        q: "7. उत्तर प्रदेश के किस जिले में प्रसिद्ध 'चौरी-चौरा' की ऐतिहासिक घटना घटित हुई थी?",
+        options: ["गोरखपुर", "वाराणसी", "देवरिया", "गाजीपुर"],
+        ans: 0,
+        exp: "4 फरवरी 1922 को गोरखपुर जिले के चौरी-चौरा में भीड़ द्वारा थाने को आग लगाने के बाद गांधीजी ने असहयोग आंदोलन वापस ले लिया था।"
+    },
+    {
+        q: "8. विश्व प्रसिद्ध 'गायत्री मंत्र' की रचना किस वेद में मिलती है?",
+        options: ["सामवेद", "यजुर्वेद", "अथर्ववेद", "ऋग्वेद"],
+        ans: 3,
+        exp: "ऋग्वेद के तीसरे मंडल में महर्षि विश्वामित्र द्वारा रचित गायत्री मंत्र है, जो सूर्य देवता (सवितृ) को समर्पित है।"
+    },
+    {
+        q: "9. प्रसिद्ध इतिहासकार वी. ए. स्मिथ ने किस गुप्त शासक को 'भारत का नेपोलियन' कहा था?",
+        options: ["चन्द्रगुप्त मौर्य", "चन्द्रगुप्त प्रथम", "समुद्रगुप्त", "स्कन्दगुप्त"],
+        ans: 2,
+        exp: "प्रयाग प्रशस्ति से समुद्रगुप्त की निरंतर विजयों का वर्णन मिलता है, जिसके कारण उन्हें 'भारत का नेपोलियन' कहा गया।"
+    },
+    {
+        q: "10. साइमन कमीशन भारत किस वर्ष पहुँचा था?",
+        options: ["1927", "1928", "1929", "1930"],
+        ans: 1,
+        exp: "नवंबर 1927 में गठित साइमन कमीशन 3 फरवरी 1928 को बॉम्बे पहुँचा। सभी सदस्य श्वेत होने के कारण इसका भारी विरोध हुआ।"
+    },
+    {
+        q: "11. उत्तर प्रदेश का राजकीय पक्षी निम्नलिखित में से कौन-सा है?",
+        options: ["मोर", "सारस (क्रौंच)", "तोता", "कोयल"],
+        ans: 1,
+        exp: "उत्तर प्रदेश का राजकीय पक्षी 'सारस' (क्रौंच), राजकीय पशु 'बारहसिंगा' और राजकीय पुष्प 'पलाश' है।"
+    },
+    {
+        q: "12. भारत की मानक समय रेखा (82°30' पूर्वी देशांतर) उत्तर प्रदेश के किस नगर से गुजरती है?",
+        options: ["प्रयागराज (नैनी)", "लखनऊ", "कानपुर", "मेरठ"],
+        ans: 0,
+        exp: "भारतीय मानक समय (IST) प्रयागराज के निकट नैनी (मिर्जापुर क्षेत्र) से गुजरने वाली 82.5° E देशांतर रेखा से लिया गया है।"
+    },
+    {
+        q: "13. उत्तर प्रदेश में सर्वाधिक वर्षा किस जनपद में दर्ज की जाती है?",
+        options: ["मथुरा", "गोरखपुर", "झांसी", "सोनभद्र"],
+        ans: 1,
+        exp: "उत्तर प्रदेश में सर्वाधिक वर्षा गोरखपुर (लगभग 184.7 सेमी) में तथा सबसे कम वर्षा मथुरा जिले में होती है।"
+    },
+    {
+        q: "14. एक सींग वाले गैंडे के लिए विश्व विख्यात 'काजीरंगा राष्ट्रीय उद्यान' किस राज्य में है?",
+        options: ["पश्चिम बंगाल", "असम", "ओडिशा", "अरुणाचल प्रदेश"],
+        ans: 1,
+        exp: "काजीरंगा राष्ट्रीय उद्यान असम में ब्रह्मपुत्र नदी के तट पर स्थित है और यूनेस्को की विश्व धरोहर स्थल सूची में शामिल है।"
+    },
+    {
+        q: "15. विश्व का सबसे बड़ा नदी द्वीप 'माजुली' किस नदी पर निर्मित है?",
+        options: ["गंगा", "ब्रह्मपुत्र", "सिंधु", "गोदावरी"],
+        ans: 1,
+        exp: "माजुली द्वीप असम में ब्रह्मपुत्र नदी के मध्य स्थित दुनिया का सबसे बड़ा नदी द्वीप एवं भारत का पहला नदी द्वीप जिला है।"
+    },
+    {
+        q: "16. उत्तर प्रदेश का एकमात्र राष्ट्रीय उद्यान 'दुधवा राष्ट्रीय उद्यान' किस जिले में स्थित है?",
+        options: ["लखीमपुर खीरी", "पीलीभीत", "बहराइच", "चंदौली"],
+        ans: 0,
+        exp: "दुधवा नेशनल पार्क लखीमपुर खीरी जिले में तराई क्षेत्र में स्थित है, जिसे 1977 में राष्ट्रीय उद्यान घोषित किया गया था।"
+    },
+    {
+        q: "17. कर्क रेखा (23.5° N) भारत के कुल कितने राज्यों से होकर गुजरती है?",
+        options: ["6 राज्य", "7 राज्य", "8 राज्य", "9 राज्य"],
+        ans: 2,
+        exp: "कर्क रेखा भारत के 8 राज्यों से गुजरती है: गुजरात, राजस्थान, मध्य प्रदेश, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, त्रिपुरा और मिजोरम।"
+    },
+    {
+        q: "18. भागीरथी और अलकनंदा नदियाँ किस स्थान पर मिलकर 'गंगा' नदी कहलाती हैं?",
+        options: ["रुद्रप्रयाग", "कर्णप्रयाग", "देवप्रयाग", "विष्णुप्रयाग"],
+        ans: 2,
+        exp: "उत्तराखंड के देवप्रयाग में भागीरथी एवं अलकनंदा का संगम होता है, जहाँ से आगे इस संयुक्त धारा को गंगा कहा जाता है।"
+    },
+    {
+        q: "19. भारतीय संविधान का कौन-सा अनुच्छेद 'अस्पृश्यता का अंत' (Abolition of Untouchability) सुनिश्चित करता है?",
+        options: ["अनुच्छेद 14", "अनुच्छेद 17", "अनुच्छेद 19", "अनुच्छेद 21"],
+        ans: 1,
+        exp: "संविधान के अनुच्छेद 17 के तहत किसी भी रूप में अस्पृश्यता या छुआछूत का आचरण पूर्णतः दंडनीय अपराध घोषित किया गया है।"
+    },
+    {
+        q: "20. भारतीय संविधान सभा की 'प्रारूप समिति' (Drafting Committee) के अध्यक्ष कौन थे?",
+        options: ["डॉ. राजेन्द्र प्रसाद", "पंडित जवाहरलाल नेहरू", "डॉ. भीमराव अम्बेडकर", "बी. एन. राव"],
+        ans: 2,
+        exp: "29 अगस्त 1947 को 7 सदस्यीय प्रारूप समिति का गठन किया गया था, जिसके अध्यक्ष डॉ. बी. आर. अम्बेडकर बनाए गए थे।"
+    },
+    {
+        q: "21. भारतीय संविधान में उल्लिखित 'मौलिक कर्तव्य' किस देश के संविधान से लिए गए हैं?",
+        options: ["संयुक्त राज्य अमेरिका", "सोवियत संघ (रूस)", "आयरलैंड", "ब्रिटेन"],
+        ans: 1,
+        exp: "42वें संविधान संशोधन 1976 द्वारा सरदार स्वर्ण सिंह समिति की सिफारिश पर सोवियत संघ से मौलिक कर्तव्य (भाग IV-A, अनुच्छेद 51A) जोड़े गए।"
+    },
+    {
+        q: "22. भारत के राष्ट्रपति पर महाभियोग (Impeachment) चलाने की प्रक्रिया किस अनुच्छेद में वर्णित है?",
+        options: ["अनुच्छेद 52", "अनुच्छेद 54", "अनुच्छेद 61", "अनुच्छेद 72"],
+        ans: 2,
+        exp: "अनुच्छेद 61 के तहत संविधान के उल्लंघन के आधार पर संसद के किसी भी सदन द्वारा राष्ट्रपति पर महाभियोग लगाया जा सकता है।"
+    },
+    {
+        q: "23. भारत में पंचायती राज व्यवस्था को किस संविधान संशोधन अधिनियम द्वारा संवैधानिक दर्जा दिया गया?",
+        options: ["44वाँ संशोधन", "73वाँ संशोधन", "74वाँ संशोधन", "86वाँ संशोधन"],
+        ans: 1,
+        exp: "73वें संविधान संशोधन 1992 द्वारा संविधान में 'भाग-9' तथा '11वीं अनुसूची' जोड़कर पंचायतों को संवैधानिक दर्जा दिया गया।"
+    },
+    {
+        q: "24. 42वें संविधान संशोधन अधिनियम (1976) द्वारा संविधान की प्रस्तावना में कौन-से शब्द जोड़े गए थे?",
+        options: ["समाजवादी, पंथनिरपेक्ष और अखंडता", "स्वतंत्रता और समानता", "संप्रभुता और लोकतंत्र", "न्याय और बंधुत्व"],
+        ans: 0,
+        exp: "42वें संशोधन द्वारा प्रस्तावना में केवल एक बार संशोधन हुआ और 'समाजवादी', 'पंथनिरपेक्ष' तथा 'अखंडता' शब्द जोड़े गए।"
+    },
+    {
+        q: "25. 'राज्य के नीति निदेशक तत्व' (DPSP) भारतीय संविधान में किस देश से प्रेरित हैं?",
+        options: ["आयरलैंड", "कनाडा", "ऑस्ट्रेलिया", "दक्षिण अफ्रीका"],
+        ans: 0,
+        exp: "नीति निदेशक सिद्धांत आयरलैंड के संविधान से लिए गए हैं, जिनका उल्लेख संविधान के भाग-4 (अनुच्छेद 36 से 51) में है।"
+    },
+    {
+        q: "26. लोकसभा की सदस्यता हेतु प्रत्याशी की न्यूनतम आयु सीमा कितनी निर्धारित है?",
+        options: ["18 वर्ष", "21 वर्ष", "25 वर्ष", "30 वर्ष"],
+        ans: 2,
+        exp: "लोकसभा और विधानसभा सदस्य हेतु न्यूनतम आयु 25 वर्ष, जबकि राज्यसभा और विधान परिषद हेतु न्यूनतम आयु 30 वर्ष होती है।"
+    },
+    {
+        q: "27. भारत में 'हरित क्रांति' (Green Revolution) का जनक किसे कहा जाता है?",
+        options: ["डॉ. वर्गीज कुरियन", "डॉ. एम. एस. स्वामीनाथन", "डॉ. होमी जहांगीर भाभा", "सैम पित्रोदा"],
+        ans: 1,
+        exp: "भारत में उच्च उपज वाली किस्मों (HYV) के बीजों को लागू कर खाद्यान्न में आत्मनिर्भरता लाने वाले डॉ. एम. एस. स्वामीनाथन थे।"
+    },
+    {
+        q: "28. योजना आयोग के स्थान पर 'नीति आयोग' (NITI Aayog) की स्थापना किस तिथि को हुई थी?",
+        options: ["1 जनवरी 2014", "1 जनवरी 2015", "15 अगस्त 2015", "1 अप्रैल 2016"],
+        ans: 1,
+        exp: "1 जनवरी 2015 को केंद्रीय मंत्रिमंडल के प्रस्ताव द्वारा NITI (National Institution for Transforming India) आयोग का गठन हुआ।"
+    },
+    {
+        q: "29. भारत में 'वस्तु एवं सेवा कर' (GST) किस तिथि से औपचारिक रूप से लागू किया गया था?",
+        options: ["1 अप्रैल 2017", "1 जुलाई 2017", "8 नवंबर 2016", "1 जनवरी 2018"],
+        ans: 1,
+        exp: "101वें संविधान संशोधन अधिनियम के तहत 1 जुलाई 2017 को पूरे देश में अप्रत्यक्ष कर प्रणाली 'GST' लागू की गई थी।"
+    },
+    {
+        q: "30. 'प्रकाश वर्ष' (Light Year) निम्नलिखित में से किसकी भौतिक इकाई है?",
+        options: ["समय", "खगोलीय दूरी", "प्रकाश की तीव्रता", "चाल"],
+        ans: 1,
+        exp: "प्रकाश द्वारा निर्वात में 1 वर्ष में तय की गई कुल दूरी को एक 'प्रकाश वर्ष' कहा जाता है (1 ly ≈ 9.46 × 10¹² किमी)।"
+    },
+    {
+        q: "31. मानव शरीर की सबसे बड़ी ग्रंथि (Largest Gland) कौन-सी है?",
+        options: ["अग्न्याशय (Pancreas)", "थायरॉयड", "यकृत (Liver)", "पीयूष ग्रंथि"],
+        ans: 2,
+        exp: "यकृत (लीवर) मानव शरीर की सबसे बड़ी ग्रंथि है, जो पित्त रस (Bile juice) का स्राव करती है और विषहरण का कार्य करती है।"
+    },
+    {
+        q: "32. पृथ्वी के वायुमंडल में सर्वाधिक प्रतिशत मात्रा में कौन-सी गैस मौजूद है?",
+        options: ["ऑक्सीजन", "कार्बन डाइऑक्साइड", "नाइट्रोजन", "आर्गन"],
+        ans: 2,
+        exp: "वायुमंडल में लगभग 78.08% नाइट्रोजन, 20.95% ऑक्सीजन और लगभग 0.93% आर्गन गैस पाई जाती है।"
+    },
+    {
+        q: "33. 'विटामिन सी' (Vitamin C) का वैज्ञानिक रासायनिक नाम क्या है?",
+        options: ["थायमिन", "एस्कॉर्बिक एसिड", "रेटिनॉल", "कैल्सिफेरॉल"],
+        ans: 1,
+        exp: "विटामिन सी को एस्कॉर्बिक एसिड कहा जाता है। इसकी कमी से 'स्कर्वी' (मसूड़ों से खून आना) रोग हो जाता है।"
+    },
+    {
+        q: "34. निकट दृष्टि दोष (मायोपिया) के निवारण के लिए किस प्रकार के लेंस का उपयोग किया जाता है?",
+        options: ["उत्तल लेंस (Convex)", "अवतल लेंस (Concave)", "द्विफोकसी लेंस", "बेलनाकार लेंस"],
+        ans: 1,
+        exp: "मायोपिया में दूर की वस्तुएं स्पष्ट नहीं दिखतीं। प्रकाश किरणों को रेटिना पर केंद्रित करने हेतु अवतल लेंस का उपयोग होता है।"
+    },
+    {
+        q: "35. शुद्ध जल का अधिकतम घनत्व (Maximum Density) किस तापमान पर होता है?",
+        options: ["0°C", "4°C", "100°C", "-4°C"],
+        ans: 1,
+        exp: "जल के असामान्य प्रसार (Anomalous expansion) के कारण 4 डिग्री सेल्सियस तापमान पर पानी का घनत्व अधिकतम और आयतन न्यूनतम होता है।"
+    },
+    {
+        q: "36. स्वस्थ मानव रक्त का सामान्य pH मान कितना होता है?",
+        options: ["6.4", "7.0", "7.4", "8.2"],
+        ans: 2,
+        exp: "मानव रक्त का pH मान लगभग 7.35 से 7.45 के बीच होता है, अर्थात यह हल्का क्षारीय (Slightly Alkaline) होता है।"
+    },
+    {
+        q: "37. भारत के पहले 'AI शहर' (AI City) के रूप में उत्तर प्रदेश के किस शहर को विकसित किया जा रहा है?",
+        options: ["नोएडा", "लखनऊ", "वाराणसी", "ग्रेटर नोएडा"],
+        ans: 1,
+        exp: "उत्तर प्रदेश सरकार द्वारा लखनऊ के नादरगंज औद्योगिक क्षेत्र में देश का पहला 'एआई सिटी' क्लस्टर स्थापित किया जा रहा है।"
+    },
+    {
+        q: "38. उत्तर प्रदेश का पहला ग्लास स्काईवॉक ब्रिज किस जिले में निर्मित किया गया है?",
+        options: ["चित्रकूट", "मिर्जापुर", "सोनभद्र", "आगरा"],
+        ans: 0,
+        exp: "भगवान राम की तपोस्थली चित्रकूट के तुलसी (शबरी) जलप्रपात पर उत्तर प्रदेश का पहला ग्लास स्काईवॉक ब्रिज बनाया गया है।"
+    },
+    {
+        q: "39. वर्ष 2026 में 20वें एशियाई खेल (20th Asian Games 2026) कहाँ आयोजित किए जाएंगे?",
+        options: ["दोहा (कतर)", "आइची-नागोया (जापान)", "रियाद (सऊदी अरब)", "जकार्ता (इंडोनेशिया)"],
+        ans: 1,
+        exp: "20वें एशियाई खेलों का आयोजन वर्ष 2026 में जापान के आइची प्रांत और उसकी राजधानी नागोया में निर्धारित है।"
+    },
+    {
+        q: "40. भारतीय रेलवे द्वारा स्टेशनों के कायाकल्प हेतु संचालित योजना का नाम क्या है?",
+        options: ["अमृत भारत स्टेशन योजना", "वंदे भारत मिशन", "गति शक्ति स्टेशन योजना", "रेल विकास अभियान"],
+        ans: 0,
+        exp: "'अमृत भारत स्टेशन योजना' के तहत देश भर के 1300 से अधिक रेलवे स्टेशनों का दीर्घकालिक आधुनिकीकरण किया जा रहा है।"
+    },
+    {
+        q: "41. 'उत्तर प्रदेश दिवस' (UP Foundation Day) प्रतिवर्ष किस तिथि को मनाया जाता है?",
+        options: ["24 जनवरी", "26 जनवरी", "1 नवंबर", "15 अगस्त"],
+        ans: 0,
+        exp: "24 जनवरी 1950 को 'यूनाइटेड प्रोविंस' (संयुक्त प्रांत) का नाम बदलकर 'उत्तर प्रदेश' किया गया था, इसलिए हर वर्ष 24 जनवरी को यूपी दिवस मनाते हैं।"
+    },
+    {
+        q: "42. भारतीय रिज़र्व बैंक (RBI) द्वारा जारी आधिकारिक सेंट्रल बैंक डिजिटल करेंसी (CBDC) का नाम क्या है?",
+        options: ["भारत कॉइन", "डिजिटल रुपया (e-Rupee)", "डिजी-मुद्रा", "आरबीआई टोकन"],
+        ans: 1,
+        exp: "आरबीआई द्वारा ब्लॉकचेन तकनीक समर्थित आधिकारिक संप्रभु डिजिटल मुद्रा को 'डिजिटल रुपया' (e₹) नाम दिया गया है।"
+    },
+    {
+        q: "43. उत्तर प्रदेश की 'एक जिला एक उत्पाद' (ODOP) योजना के अंतर्गत पीतल के बर्तनों के लिए कौन-सा नगर प्रसिद्ध है?",
+        options: ["फिरोजाबाद", "मुरादाबाद", "कन्नौज", "भदोही"],
+        ans: 1,
+        exp: "मुरादाबाद को 'पीतल नगरी' (Brass City) कहा जाता है। (फिरोजाबाद कांच की चूड़ियों और कन्नौज इत्र के लिए प्रसिद्ध है)।"
+    },
+    {
+        q: "44. सूर्य के वायुमंडल और सौर तूफानों के अध्ययन हेतु भारत द्वारा भेजा गया पहला अंतरिक्ष मिशन कौन-सा है?",
+        options: ["भास्कर-1", "आदित्य-L1", "सूर्ययान-3", "हेलिओस-A"],
+        ans: 1,
+        exp: "इसरो द्वारा 2 सितंबर 2023 को प्रक्षेपित 'आदित्य-L1' को पृथ्वी से 15 लाख किमी दूर 'लैग्रेंज पॉइंट 1' के हेलो ऑर्बिट में स्थापित किया गया है।"
+    },
+    {
+        q: "45. उत्तर प्रदेश के किस जिले में भगवान शिव की थीम पर आधारित अंतरराष्ट्रीय क्रिकेट स्टेडियम बनाया गया है?",
+        options: ["अयोध्या", "वाराणसी (गंजारी)", "गोरखपुर", "कानपुर"],
+        ans: 1,
+        exp: "प्रधानमंत्री नरेंद्र मोदी द्वारा वाराणसी के गंजारी में त्रिशूल और डमरू के आकार की थीम पर अंतरराष्ट्रीय स्टेडियम का शिलान्यास किया गया था।"
+    },
+    {
+        q: "46. इसरो का बहुचर्चित 'मिशन गगनयान' प्राथमिक रूप से किस उद्देश्य से संबंधित है?",
+        options: ["भारत का पहला मानवयुक्त अंतरिक्ष मिशन", "मंगल ग्रह पर रोवर उतारना", "सूर्य का अध्ययन", "गहरे समुद्र की खोज"],
+        ans: 0,
+        exp: "गगनयान भारत का पहला स्वदेशी मिशन है जिसके तहत 3 सदस्यीय भारतीय दल को 400 किमी की निचली पृथ्वी कक्षा (LEO) में भेजा जाएगा।"
+    },
+    {
+        q: "47. उत्तर प्रदेश राज्य में कुल कितने प्रशासनिक मंडल (Divisions) और जनपद (Districts) हैं?",
+        options: ["18 मंडल एवं 75 जिले", "17 मंडल एवं 72 जिले", "20 मंडल एवं 80 जिले", "15 मंडल एवं 70 जिले"],
+        ans: 0,
+        exp: "उत्तर प्रदेश में कुल 18 प्रशासनिक मंडल और 75 जिले हैं। अलीगढ़ सबसे नवीनतम (18वाँ) मंडल है।"
+    },
+    {
+        q: "48. स्वच्छ सर्वेक्षण में 1 लाख से अधिक आबादी वाले शहरों में उत्तर प्रदेश का कौन-सा शहर राज्य में शीर्ष पर रहा?",
+        options: ["लखनऊ", "नोएडा", "कानपुर", "गाजियाबाद"],
+        ans: 1,
+        exp: "स्वच्छ सर्वेक्षण रैंकिंग में नोएडा (गौतम बुद्ध नगर) उत्तर प्रदेश का सबसे स्वच्छ शहर बनकर उभरा है।"
+    },
+    {
+        q: "49. उत्तर प्रदेश के चित्रकूट जिले में स्थित राज्य का चौथा बाघ अभयारण्य (Tiger Reserve) कौन-सा है?",
+        options: ["अमानगढ़ टाइगर रिजर्व", "पीलीभीत टाइगर रिजर्व", "रानीपुर टाइगर रिजर्व", "दुधवा टाइगर रिजर्व"],
+        ans: 2,
+        exp: "चित्रकूट में स्थित 'रानीपुर टाइगर रिजर्व' उत्तर प्रदेश का चौथा और भारत का 54वाँ बाघ अभयारण्य अधिसूचित किया गया है।"
+    },
+    {
+        q: "50. चन्द्रयान-3 के लैंडर विक्रम ने चंद्रमा के दक्षिणी ध्रुव पर जहाँ सफल लैंडिंग की, उस स्थान को क्या नाम दिया गया?",
+        options: ["तिरंगा पॉइंट", "शिव शक्ति पॉइंट", "अटल बिंदु", "शक्ति स्थल"],
+        ans: 1,
+        exp: "भारत सरकार द्वारा 23 अगस्त (राष्ट्रीय अंतरिक्ष दिवस) को चन्द्रयान-3 के लैंडिंग स्थल का नाम 'शिव शक्ति पॉइंट' घोषित किया गया।"
+    }
+];
+
+/* =========================================================
+   APPLICATION LOGIC & STATE MANAGEMENT
+   ========================================================= */
+const STORAGE_PREFIX = "UPPET_2026_";
+const KEY_COMPLETED_USERS = STORAGE_PREFIX + "COMPLETED_MAP";
+const KEY_LEADERBOARD = STORAGE_PREFIX + "LEADERBOARD_LIST";
+const KEY_CURRENT_SESSION = STORAGE_PREFIX + "CURRENT_SESSION";
+
+let currentUser = null; // { name, roll, key }
+let currentIndex = 0;
+let userAnswers = {}; // { [qIndex]: selectedOptionIndex }
+let timerSeconds = 30;
+let timerInterval = null;
+
+// DOM Elements
+const startScreen = document.getElementById("startScreen");
+const lockedScreen = document.getElementById("lockedScreen");
+const quizScreen = document.getElementById("quizScreen");
+const resultScreen = document.getElementById("resultScreen");
+
+const userNameInput = document.getElementById("userName");
+const userRollInput = document.getElementById("userRoll");
+const btnStart = document.getElementById("btnStart");
+const btnViewPreviousResult = document.getElementById("btnViewPreviousResult");
+const btnResetAll = document.getElementById("btnResetAll");
+
+const displayUserInfo = document.getElementById("displayUserInfo");
+const timerDisplay = document.getElementById("timerDisplay");
+const timerCount = document.getElementById("timerCount");
+const qNumberText = document.getElementById("qNumberText");
+const qPercentText = document.getElementById("qPercentText");
+const progressBarFill = document.getElementById("progressBarFill");
+const questionText = document.getElementById("questionText");
+const optionsContainer = document.getElementById("optionsContainer");
+const btnPrev = document.getElementById("btnPrev");
+const btnNext = document.getElementById("btnNext");
+
+// Initialization
+window.addEventListener("DOMContentLoaded", () => {
+    checkActiveSession();
+});
+
+// Check if test was in-progress upon refresh
+function checkActiveSession() {
+    const saved = localStorage.getItem(KEY_CURRENT_SESSION);
+    if (saved) {
+        try {
+            const data = JSON.parse(saved);
+            currentUser = data.user;
+            currentIndex = data.currentIndex || 0;
+            userAnswers = data.answers || {};
+            timerSeconds = data.remainingSeconds !== undefined ? data.remainingSeconds : 30;
+            
+            showScreen(quizScreen);
+            displayUserInfo.textContent = `विद्यार्थी: ${currentUser.name} (${currentUser.roll})`;
+            loadQuestion(currentIndex);
+            startQuestionTimer();
+            return;
+        } catch(e) {
+            localStorage.removeItem(KEY_CURRENT_SESSION);
+        }
+    }
+}
+
+// Generate unique user key
+function makeUserKey(name, roll) {
+    return (name.trim() + "_" + roll.trim()).toLowerCase().replace(/\s+/g, "");
+}
+
+// Start Quiz Handler
+btnStart.addEventListener("click", () => {
+    const name = userNameInput.value.trim();
+    const roll = userRollInput.value.trim();
+
+    if (!name || !roll) {
+        alert("कृपया अपना नाम और रोल नंबर दोनों दर्ज करें!");
+        return;
+    }
+
+    const userKey = makeUserKey(name, roll);
+    const completedMap = getCompletedUsersMap();
+
+    // Check one-time attempt
+    if (completedMap[userKey]) {
+        showLockedScreen(name, roll, completedMap[userKey]);
+        return;
+    }
+
+    currentUser = { name, roll, key: userKey };
+    currentIndex = 0;
+    userAnswers = {};
+    timerSeconds = 30;
+
+    saveSession();
+    showScreen(quizScreen);
+    displayUserInfo.textContent = `विद्यार्थी: ${name} (${roll})`;
+    loadQuestion(currentIndex);
+    startQuestionTimer();
+});
+
+function showLockedScreen(name, roll, attemptData) {
+    showScreen(lockedScreen);
+    document.getElementById("lockedUserSummary").innerHTML = 
+        `छात्र: <strong>${name}</strong> | रोल नं: <strong>${roll}</strong><br>` +
+        `पिछला स्कोर: <strong style="color:var(--primary); font-size:16px;">${attemptData.score} / 50 (${attemptData.percentage}%)</strong><br>` +
+        `दिनांक: ${attemptData.date || 'हाल ही में'}`;
+    
+    btnViewPreviousResult.onclick = () => {
+        showResults(attemptData.answers, attemptData.name, attemptData.roll, false);
+    };
+}
+
+// Admin / Testing Reset
+btnResetAll.addEventListener("click", () => {
+    if (confirm("क्या आप वाकई इस डिवाइस का सारा क्विज़ डेटा रीसेट करना चाहते हैं?")) {
+        localStorage.clear();
+        alert("डेटा रीसेट कर दिया गया है। अब नया टेस्ट दे सकते हैं।");
+        location.reload();
+    }
+});
+
+// Load a specific question
+function loadQuestion(index) {
+    const qData = questions[index];
+    qNumberText.textContent = `Question ${index + 1} of ${questions.length}`;
+    const percent = Math.round(((index + 1) / questions.length) * 100);
+    qPercentText.textContent = `${percent}%`;
+    progressBarFill.style.width = `${percent}%`;
+
+    questionText.textContent = qData.q;
+    optionsContainer.innerHTML = "";
+
+    const selectedOpt = userAnswers[index];
+
+    qData.options.forEach((optText, optIdx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        if (selectedOpt === optIdx) {
+            btn.classList.add("selected");
+        }
+
+        const letter = String.fromCharCode(65 + optIdx); // A, B, C, D
+        btn.innerHTML = `<span class="opt-letter">${letter}</span><span>${optText}</span>`;
+
+        // Selection is STRICTLY neutral (no green/red)
+        btn.addEventListener("click", () => {
+            userAnswers[index] = optIdx;
+            saveSession();
+            // Re-render selection style instantly
+            const allBtns = optionsContainer.querySelectorAll(".option-btn");
+            allBtns.forEach((b, i) => {
+                if (i === optIdx) {
+                    b.classList.add("selected");
+                } else {
+                    b.classList.remove("selected");
+                }
+            });
+        });
+
+        optionsContainer.appendChild(btn);
+    });
+
+    // Update navigation buttons
+    btnPrev.style.visibility = index === 0 ? "hidden" : "visible";
+    if (index === questions.length - 1) {
+        btnNext.textContent = "सबमिट करें (Submit Test)";
+    } else {
+        btnNext.textContent = "अगला (Next)";
+    }
+}
+
+// Timer Logic (30 seconds per question)
+function startQuestionTimer() {
+    clearInterval(timerInterval);
+    updateTimerUI();
+
+    timerInterval = setInterval(() => {
+        timerSeconds--;
+        saveSession();
+        updateTimerUI();
+
+        if (timerSeconds <= 0) {
+            clearInterval(timerInterval);
+            // Auto advance
+            handleNextAction(true);
+        }
+    }, 1000);
+}
+
+function updateTimerUI() {
+    timerCount.textContent = timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds;
+    if (timerSeconds <= 5) {
+        timerDisplay.classList.add("timer-danger");
+    } else {
+        timerDisplay.classList.remove("timer-danger");
+    }
+}
+
+// Navigation Events
+btnPrev.addEventListener("click", () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        timerSeconds = 30; // reset 30s
+        loadQuestion(currentIndex);
+        startQuestionTimer();
+        saveSession();
+    }
+});
+
+btnNext.addEventListener("click", () => {
+    handleNextAction(false);
+});
+
+function handleNextAction(isAutoTimeout = false) {
+    if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        timerSeconds = 30;
+        loadQuestion(currentIndex);
+        startQuestionTimer();
+        saveSession();
+    } else {
+        // Question 50 reached
+        clearInterval(timerInterval);
+        finishQuiz();
+    }
+}
+
+// Finish & Calculate Score
+function finishQuiz() {
+    clearInterval(timerInterval);
+    localStorage.removeItem(KEY_CURRENT_SESSION);
+
+    let correctCount = 0;
+    let wrongCount = 0;
+    let skippedCount = 0;
+
+    questions.forEach((q, idx) => {
+        const uAns = userAnswers[idx];
+        if (uAns === undefined || uAns === null) {
+            skippedCount++;
+        } else if (uAns === q.ans) {
+            correctCount++;
+        } else {
+            wrongCount++;
+        }
+    });
+
+    const score = correctCount;
+    const percentage = ((score / questions.length) * 100).toFixed(1);
+    const currentDate = new Date().toLocaleDateString('hi-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+
+    // Store in completed map (One-time attempt lock)
+    const completedMap = getCompletedUsersMap();
+    const resultRecord = {
+        name: currentUser.name,
+        roll: currentUser.roll,
+        score: score,
+        total: questions.length,
+        percentage: percentage,
+        correct: correctCount,
+        wrong: wrongCount,
+        skipped: skippedCount,
+        answers: userAnswers,
+        date: currentDate
+    };
+
+    completedMap[currentUser.key] = resultRecord;
+    localStorage.setItem(KEY_COMPLETED_USERS, JSON.stringify(completedMap));
+
+    // Update Leaderboard
+    let leaderboard = getLeaderboard();
+    // remove existing entry if any
+    leaderboard = leaderboard.filter(item => makeUserKey(item.name, item.roll) !== currentUser.key);
+    leaderboard.push(resultRecord);
+    // Sort descending by score, then percentage
+    leaderboard.sort((a, b) => b.score - a.score);
+    localStorage.setItem(KEY_LEADERBOARD, JSON.stringify(leaderboard));
+
+    showResults(userAnswers, currentUser.name, currentUser.roll, true);
+}
+
+// Render Results Page
+function showResults(ansMap, name, roll, isNewAttempt = false) {
+    showScreen(resultScreen);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    let correct = 0, wrong = 0, skipped = 0;
+    questions.forEach((q, idx) => {
+        const a = ansMap[idx];
+        if (a === undefined || a === null) skipped++;
+        else if (a === q.ans) correct++;
+        else wrong++;
+    });
+
+    const score = correct;
+    const percentage = ((score / questions.length) * 100).toFixed(1);
+
+    document.getElementById("finalScoreVal").textContent = score;
+    document.getElementById("finalPercentVal").textContent = `${percentage}% अंक प्राप्त किए`;
+    document.getElementById("candidateDetails").textContent = `परीक्षार्थी: ${name} | रोल नंबर: ${roll}`;
+    
+    document.getElementById("statCorrect").textContent = correct;
+    document.getElementById("statWrong").textContent = wrong;
+    document.getElementById("statSkipped").textContent = skipped;
+
+    // Motivational Message
+    const motEl = document.getElementById("motivationalMsg");
+    if (percentage >= 85) {
+        motEl.innerHTML = "🌟 <strong>उत्कृष्ट प्रदर्शन!</strong> आपकी तैयारी बहुत मजबूत है, आप UP PET परीक्षा में टॉप करने की क्षमता रखते हैं।";
+        motEl.style.borderLeftColor = "var(--success)";
+    } else if (percentage >= 65) {
+        motEl.innerHTML = "👍 <strong>बहुत अच्छा प्रयास!</strong> कुछ महत्वपूर्ण गलतियों पर ध्यान दें, आप आसानी से कट-ऑफ पार कर लेंगे।";
+        motEl.style.borderLeftColor = "var(--primary)";
+    } else if (percentage >= 45) {
+        motEl.innerHTML = "📖 <strong>संतोषजनक!</strong> आपको करंट अफेयर्स और जीएस के विषयों का दोबारा रिवीजन करने की आवश्यकता है।";
+        motEl.style.borderLeftColor = "var(--warning)";
+    } else {
+        motEl.innerHTML = "⚠️ <strong>कड़ी मेहनत की जरूरत है!</strong> प्रतिदिन नियमित अभ्यास करें और सभी 50 प्रश्नों की व्याख्या ध्यानपूर्वक पढ़ें।";
+        motEl.style.borderLeftColor = "var(--danger)";
+    }
+
+    // Render Leaderboard
+    renderLeaderboard();
+
+    // Render detailed review of all 50 questions
+    renderDetailedReview(ansMap);
+}
+
+function renderLeaderboard() {
+    const list = getLeaderboard();
+    const tbody = document.getElementById("leaderboardBody");
+    tbody.innerHTML = "";
+
+    if (list.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='5' style='text-align:center;'>कोई डेटा उपलब्ध नहीं है।</td></tr>";
+        return;
+    }
+
+    list.slice(0, 15).forEach((item, idx) => {
+        const tr = document.createElement("tr");
+        let rankClass = "";
+        if (idx === 0) rankClass = "rank-1";
+        else if (idx === 1) rankClass = "rank-2";
+        else if (idx === 2) rankClass = "rank-3";
+
+        tr.innerHTML = `
+            <td><span class="rank-badge ${rankClass}">${idx + 1}</span></td>
+            <td><strong>${escapeHtml(item.name)}</strong></td>
+            <td>${escapeHtml(item.roll)}</td>
+            <td>
+                <strong>${item.score}</strong> / 50
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width:${item.percentage}%"></div></div>
+            </td>
+            <td><strong>${item.percentage}%</strong></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function renderDetailedReview(ansMap) {
+    const container = document.getElementById("reviewQuestionsList");
+    container.innerHTML = "";
+
+    questions.forEach((q, idx) => {
+        const uAns = ansMap[idx];
+        const isSkipped = uAns === undefined || uAns === null;
+        const isCorrect = !isSkipped && uAns === q.ans;
+
+        const card = document.createElement("div");
+        card.className = "review-item";
+
+        let userBadge = "";
+        if (isSkipped) {
+            userBadge = `<span class="badge-ans badge-skipped">आपने यह प्रश्न छोड़ दिया (Skipped)</span>`;
+        } else if (isCorrect) {
+            const letter = String.fromCharCode(65 + uAns);
+            userBadge = `<span class="badge-ans badge-correct">✓ आपका उत्तर सही था: [${letter}] ${escapeHtml(q.options[uAns])}</span>`;
+        } else {
+            const letter = String.fromCharCode(65 + uAns);
+            userBadge = `<span class="badge-ans badge-user-wrong">✗ आपका चुना हुआ उत्तर: [${letter}] ${escapeHtml(q.options[uAns])}</span>`;
+        }
+
+        const correctLetter = String.fromCharCode(65 + q.ans);
+        const correctBadge = `<span class="badge-ans badge-correct" style="margin-top:4px;">★ सही उत्तर: [${correctLetter}] ${escapeHtml(q.options[q.ans])}</span>`;
+
+        card.innerHTML = `
+            <div class="review-q-title">${q.q}</div>
+            <div class="review-ans-row">
+                ${userBadge}
+                ${isCorrect ? "" : correctBadge}
+            </div>
+            <div class="review-explanation">
+                <strong>स्पष्टीकरण:</strong> ${escapeHtml(q.exp)}
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Helpers
+function saveSession() {
+    if (!currentUser) return;
+    const payload = {
+        user: currentUser,
+        currentIndex: currentIndex,
+        answers: userAnswers,
+        remainingSeconds: timerSeconds
+    };
+    localStorage.setItem(KEY_CURRENT_SESSION, JSON.stringify(payload));
+}
+
+function getCompletedUsersMap() {
+    try {
+        return JSON.parse(localStorage.getItem(KEY_COMPLETED_USERS)) || {};
+    } catch(e) {
+        return {};
+    }
+}
+
+function getLeaderboard() {
+    try {
+        return JSON.parse(localStorage.getItem(KEY_LEADERBOARD)) || [];
+    } catch(e) {
+        return [];
+    }
+}
+
+function showScreen(screenEl) {
+    [startScreen, lockedScreen, quizScreen, resultScreen].forEach(s => s.classList.add("hidden"));
+    screenEl.classList.remove("hidden");
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+</script>
+</body>
+</html>
